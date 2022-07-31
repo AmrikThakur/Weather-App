@@ -1,0 +1,120 @@
+/*
+.container {
+    width: 100ch;
+    height: 100vh;
+    margin: auto;
+    background-image: linear-gradient(steelblue, skyblue);
+    text-align: center;
+    color: white !important;
+    text-shadow: 2px 2px 8px black;
+    box-shadow: 2px 2px 12px 2px white !important;
+  } 
+.cars{
+    width: 30vh;
+    height: 9vh;   
+}
+
+.forcast_container{
+    margin: auto;
+    margin-top: 30vh;
+    background-image: linear-gradient(steelblue, skyblue);
+    text-align: center;
+    color: white !important;
+    text-shadow: 2px 2px 8px black;
+    box-shadow: 2px 2px 12px 2px white !important;
+}
+*/
+.container {
+    padding-top: 25px;
+}
+
+.container .top-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .top-section .top-right-section .side_icon {
+    font-size: 60px;
+    display: inline-block
+}
+
+.container .top-section .top-right-section .side_text {
+    padding: 20px;
+    font-size: 30px;
+}
+
+.container .top-section .top-right-section .side_seond_text {
+    color: rgb(78, 76, 76);
+    padding: 20px;
+    font-size: 20px;
+}
+
+.container .top-section .top-right-section {
+    color: white;
+    text-align: right;
+}
+
+.container .top-section .top-right-section h5 {
+    color: rgb(78, 76, 76);
+}
+
+.container .city_selector {
+    width: 18%;
+    border-radius: 20px;
+    background: white;
+}
+
+.container .city_selector .city_options {
+    position: absolute;
+    margin-left: 27%;
+    width: 20%;
+}
+
+.container .city_button {
+    margin-left: 55%;
+    border-radius: 20px;
+}
+
+.container .forcast_button {
+    margin-left: 44%;
+    text-align: center;
+    width: fit-content;
+
+    /* display: inline-block; */
+    /* margin-top: 10px; */
+    border-radius: 20px;
+}
+
+.container .forcast_weather {
+    display: flex;
+    height: 220px;
+    margin-left: 425px;
+    margin-top: 20px;
+    border-radius: 61px;
+
+}
+
+.container .city_selector .title {
+    text-align: center;
+    color: black;
+    margin-right: 10px;
+}
+
+.container .cards {
+    margin-top: 2%;
+}
+
+.container .cards .little_cards {
+    height: 100px;
+    /* margin: auto; */
+    width: 80px;
+    align-content: space-between;
+    margin-left: 285%;
+    padding-left: 25px;
+    font-size: small;
+}
+
+.container .cards .little_cards .weather_icon {
+    height: 50px;
+    width: 50px;
+}
