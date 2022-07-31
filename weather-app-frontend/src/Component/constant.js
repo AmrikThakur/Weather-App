@@ -8,3 +8,4 @@ export const cities = [
 ]
 
 export const weekArray = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
+

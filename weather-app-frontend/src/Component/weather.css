@@ -47,6 +47,7 @@
     color: rgb(78, 76, 76);
     padding: 20px;
     font-size: 20px;
+    display: inline-flex;
 }
 
 .container .top-section .top-right-section {
