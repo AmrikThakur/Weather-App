@@ -90,7 +90,7 @@
     display: flex;
     height: 220px;
     margin-left: 425px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border-radius: 61px;
 
 }
@@ -106,7 +106,7 @@
 }
 
 .container .cards .little_cards {
-    height: 100px;
+    height: 120px;
     /* margin: auto; */
     width: 80px;
     align-content: space-between;

@@ -85,7 +85,11 @@ const Weather = () => {
                             <Paper className='little_cards' >
                                 {item}
                                 <img className='weather_icon' src={imgSrc[Math.floor(Math.random() * imgSrc.length)]} />
-                                {!seeForcast ? 'Temp?' : `${tempMax + ' ' + tempMin}`}
+                                {!seeForcast ? 'Temp?' : `${isNaN(parseFloat(tempMin)) == true || isNaN(parseFloat(tempMax)) == true ?
+                                    '0' + ' ' + '0'
+                                    :
+                                    tempMax + ' ' + tempMin}`
+                                }
                             </Paper>
                         </Grid>
 
