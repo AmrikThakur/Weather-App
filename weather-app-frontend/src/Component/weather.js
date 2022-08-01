@@ -75,7 +75,7 @@ const Weather = () => {
                 Get Weather
             </Button>
             <img className='forcast_weather' src={gif} />
-            <Button className='forcast_button' disabled={!city} variant="contained" color="primary" onClick={() => getForCastWeather()}>
+            <Button className='forcast_button' variant="contained" color="primary" onClick={() => getForCastWeather()}>
                 {!seeForcast ? 'forcast?' : 'Close'}
             </Button>
             <div className='cards'>
@@ -90,6 +90,8 @@ const Weather = () => {
                                     :
                                     tempMax + ' ' + tempMin}`
                                 }
+                                <br />
+                                <span className='humidity_inside'>Humidity:23</span>
                             </Paper>
                         </Grid>
 

@@ -119,3 +119,9 @@
     height: 50px;
     width: 50px;
 }
+
+.container .cards .little_cards .humidity_inside {
+    font-size: 10px;
+    margin: -10px;
+    font-weight: 600;
+}
