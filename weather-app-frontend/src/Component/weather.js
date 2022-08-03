@@ -6,10 +6,9 @@ import rainy from '../assets/rainy.png'
 import CloudIcon from '@material-ui/icons/Cloud';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import weather from '../assets/rainy.png'
 import moment from 'moment'
 import gif from '../assets/giphy.gif'
-import { GET_CURRENT_WEATHER, GET_FORCAST_WEATHER, cities, weekArray } from './constant'
+import { GET_CURRENT_WEATHER, GET_FORCAST_WEATHER, cities, weekArray, getCurrentCityAPI } from './constant'
 import Button from '@material-ui/core/Button';
 import Select from 'react-select'
 import axios from 'axios';
@@ -18,14 +17,26 @@ const Weather = () => {
     const [seeForcast, setSeeForcast] = useState(false)
     const [city, setCity] = useState('')
     const [test, setTest] = useState(false)
+    const [currentData, setCurrentData] = useState([])
     const [currentWeather, setCurrentWeather] = useState([])
     const [forcastWeather, setForCastweather] = useState([])
     const imgSrc = [rainy, sunny, cloud]
+
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
+            getCurrentCityAPI(lat, lon).then(res => {
+                setCurrentData(res.data)
+            })
+        });
+    }, [])
     const onChangeHandler = (e) => {
-        setTest(!test)
         setCity(e.id)
     }
     const getWeather = () => {
+        setTest(true)
         axios.post(GET_CURRENT_WEATHER, {
             city_id: city
         }).then(res => {
@@ -43,7 +54,7 @@ const Weather = () => {
     const kelvinToCelsius = (kelvin) => {
         return kelvin - 273.15;
     }
-    console.log(currentWeather, 'currentWeathercurrentWeathercurrentWeather')
+
     const { values } = currentWeather
     const { name, main, wind, weather = [], sys } = values
     let weatherType = weather.length && weather.filter((item) => item.main)[0]
@@ -63,7 +74,7 @@ const Weather = () => {
                     </span>
                 </div>
                 <div className='top-right-section'>
-                    <h3>{name == 'values' ? "Mohali,Punjab" : `${name + ',' + sys.country}`}</h3>
+                    <h3>{name == 'values' ? currentData.map(item => item.name + ' ,' + item.state) : `${name + ',' + sys.country}`}</h3>
                     <h5>{moment(new Date()).format("DD/MM/YYYY")}</h5>
                     <h5>{weatherType.main ? weatherType.main : 'Cloudy'}</h5>
                 </div>
@@ -75,7 +86,8 @@ const Weather = () => {
                 Get Weather
             </Button>
             <img className='forcast_weather' src={gif} />
-            <Button className='forcast_button' variant="contained" color="primary" onClick={() => getForCastWeather()}>
+            <Button className={!test ? 'disabled_button' : 'forcast_button'}
+                variant="contained" color="primary" onClick={() => getForCastWeather()}>
                 {!seeForcast ? 'forcast?' : 'Close'}
             </Button>
             <div className='cards'>
@@ -91,7 +103,7 @@ const Weather = () => {
                                     tempMax + ' ' + tempMin}`
                                 }
                                 <br />
-                                <span className='humidity_inside'>Humidity:23</span>
+                                <span className='humidity_inside'>Humidity:{main?.humidity || 89}</span>
                             </Paper>
                         </Grid>
 

@@ -80,10 +80,17 @@
     margin-left: 44%;
     text-align: center;
     width: fit-content;
-
-    /* display: inline-block; */
-    /* margin-top: 10px; */
     border-radius: 20px;
+}
+
+.container .disabled_button {
+    margin-left: 44%;
+    text-align: center;
+    width: fit-content;
+    border-radius: 20px;
+    background-color: #cccccc;
+    pointer-events: none;
+    color: #666666
 }
 
 .container .forcast_weather {
